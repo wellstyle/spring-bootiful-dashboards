@@ -1,6 +1,6 @@
 # Spring Bootiful Dashboards
 
-https://spring.io/blog/2016/12/07/spring-tips-bootiful-dashboards
+Practice with reference https://spring.io/blog/2016/12/07/spring-tips-bootiful-dashboards
 
 ## Step 1. Start Eureka Service
 
@@ -96,4 +96,32 @@ management.security.enabled=false
 ```
 spring.application.name=spring-boot-admin
 server.port=8082
+```
+
+## Step 4. Start Microservice Dashboard
+
+### Generate Project by SPRING INITIALIZR
+- Artifact: microservices-dashboard
+- Dependencies: Eureka Discovery, Web, Actuator
+- **spring-boot 1.4.4** (not supoort 1.5.x)
+
+### pom.xml
+```
+<dependency>
+    <groupId>be.ordina</groupId>
+    <artifactId>microservices-dashboard-server</artifactId>
+    <version>1.0.1</version>
+</dependency>
+```
+
+### SpringBootAdminApplication.java
+```
+@EnableMicroservicesDashboardServer
+@EnableDiscoveryClient
+```
+
+### application.properties
+```
+spring.application.name=microservices-dashboard
+server.port=8083
 ```
